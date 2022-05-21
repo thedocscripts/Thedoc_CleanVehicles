@@ -10,8 +10,6 @@ AddEventHandler('Thedoc_CleanVehicles:client:delveh', function(data)
         local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
         if vehicle ~= veh then
             for k, v in pairs(nondel) do
-            --local vehccords = GetEntityCoords(veh)
-            --QBCore.Functions.StartParticleAtCoord("core", "ent_amb_smoke_chicken", true, vehccords ,vector3(0,0,0), 1.0, 10.0, false, 5)
                 if v ~= veh then
                 SetEntityAsMissionEntity(veh, true, true)
                 DeleteEntity(veh)
