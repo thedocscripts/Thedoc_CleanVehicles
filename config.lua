@@ -1,6 +1,6 @@
 Config = {}
 
-Config.time = 65 -- 4 Hours in seconds
+Config.time = 14400 -- 4 Hours in seconds
 
 --msg Headers --------
 Config.MessageHeader = "Grua"
