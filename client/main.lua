@@ -28,14 +28,19 @@ RegisterCommand('nondel', function()
     local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
     for k, v in pairs(nondel) do
         if vehicle ~= v then
-            QBCore.Functions.Notify("Este vehiculo a sido añadido a la whitelist")
+            QBCore.Functions.Notify(Config.AddedToWhitelist)
             return TriggerServerEvent('Thedoc_CleanVehicles:addtowhitelist', vehicle)
         end
     end
-    return QBCore.Functions.Notify("Este vehiculo ya esta asignado para no borrarse")
+    return QBCore.Functions.Notify(Config.AlreadyInWhitelist)
 end)
 
 RegisterNetEvent('Thedoc_CleanVehicles:client:announce', function(msg)
     QBCore.Functions.Notify(msg, 'primary', 3500)
+    TriggerEvent('chat:addMessage', {
+        color = { 255, 0, 0},
+        multiline = true,
+        args = {Config.MessageHeader ,msg}
+      })
 end)
 
